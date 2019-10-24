@@ -1,0 +1,17 @@
+{
+  "name": "citrus-ui",
+  "version": "0.0.3",
+  "description": "A Web Components based UI design system.",
+  "main": "./dist/index.js",
+  "repository": "https://github.com/vertcitron/citrus-ui",
+  "author": "Stéphane Souron <stef@vertcitron.fr>",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "serve": "webpack --mode development"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
