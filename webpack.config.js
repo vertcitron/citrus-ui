@@ -12,35 +12,6 @@ module.exports = {
   devServer: {
     stats: 'minimal'
   },
-  module: {
-    rules: [
-      {
-        test: [ /\.js$/ ],
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
-          }
-        }
-      },
-      {
-        test: [ /\.ts$/ ],
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/typescript'
-            ]
-          }
-        }
-      }
-    ]
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Citrus UI',
@@ -51,5 +22,38 @@ module.exports = {
         collapseWhitespace: false
       }
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: [ /\.js$/ ],
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-env' ]
+          }
+        }
+      },
+      {
+        test: [ /\.ts$/ ],
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-env', '@babel/typescript' ]
+          }
+        }
+      },
+      {
+        test: [/\.sass$/],
+        exclude: /\.module\.sass$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
+      {
+        test: [/\.module\.sass$/],
+        use: [ 'css-loader', 'sass-loader' ]
+      }
+    ]
+  }
 }
