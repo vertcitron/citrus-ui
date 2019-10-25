@@ -7,7 +7,6 @@ export default class Test {
 
   render () {
     console.log('Test rendered.')
-    document.body.innerHTML = ''
     document.body.appendChild(this.element)
     setTimeout(() => {
       console.log('Test modified.')
