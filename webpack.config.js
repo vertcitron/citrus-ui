@@ -48,11 +48,11 @@ module.exports = {
       {
         test: [/\.sass$/],
         exclude: /\.module\.sass$/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        use: [ 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader' ]
       },
       {
         test: [/\.module\.sass$/],
-        use: [ 'css-loader', 'sass-loader' ]
+        use: [ 'css-loader', 'postcss-loader', 'sass-loader' ]
       }
     ]
   }
