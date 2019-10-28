@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -27,7 +28,10 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './src/images', to: 'assets/images' }
     ]),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
   ],
   module: {
     rules: [
@@ -54,7 +58,7 @@ module.exports = {
         test: [/\.sass$/],
         exclude: /\.module\.sass$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           {
