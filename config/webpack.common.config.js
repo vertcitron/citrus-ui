@@ -53,12 +53,31 @@ module.exports = {
       {
         test: [/\.sass$/],
         exclude: /\.module\.sass$/,
-        use: [ 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader' ]
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `@import "${path.resolve(__dirname, '../src/assets/style')}/common.module.sass"`
+            }
+          }
+        ]
       },
       // ------------------------- Modular SASS files --------------------------
       {
         test: [/\.module\.sass$/],
-        use: [ 'css-loader', 'postcss-loader', 'sass-loader' ]
+        use: [
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `@import "${path.resolve(__dirname, '../src/assets/style')}/common.module.sass"`
+            }
+          }
+        ]
       },
       // --------------------------- Static Assets -----------------------------
       {

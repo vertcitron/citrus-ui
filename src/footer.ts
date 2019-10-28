@@ -4,8 +4,6 @@ export default class Footer {
   private element: HTMLDivElement
 
   constructor () {
-    console.log('footer constructor')
-    console.log('style =', style.toString())
     const styleTag = document.createElement('style')
     styleTag.textContent = style.toString()
     this.element = document.createElement('div')
