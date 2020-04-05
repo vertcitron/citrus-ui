@@ -38,5 +38,8 @@
   "browserslist": [
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "resolutions": {
+    "kind-of": "^6.0.3"
+  }
 }
